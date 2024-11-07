@@ -22,7 +22,7 @@
 			{% endif %}
 		{% endwith %}
 		<input type="submit" name="view" value="View lists">
-		<input type="submit" name="delete" value="Delete lists">
+		<a href="{{ url_for('delete') }}">Delete a task</a>
 
 		{% with view_details = get_flashed_messages(category_filter=["view"]) %}
 			{% if view_details %}

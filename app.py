@@ -40,6 +40,21 @@ def view():
 		except mysql.connector.Error as error:
 			print(f'something went wrong {error}')
 
+@app.route('/usr/delete', methods = ['POST', 'GET'])
+def delete():
+	if request.method == 'POST':
+		id = request.form.get('id')
+		sql = 'DELETE FROM lists WHERE id = %s'
+		val = (id,)
+		try:
+			cursor.execute(sql, val)
+			con.commit()
+			flash("deleted the task", "alert2")
+		except mysql.connector.Error as error:
+			print(f'something went wrong {error}')
+	view()
+	return render_template('delete-todo.html')
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
