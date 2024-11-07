@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="/usr/create">
+		<h1 style="font-family: monospace;">TODO LIST</h1>
+
+		<input type="text" name="list">
+		<br > <br>
+		<input type="submit" name="create" value="Create lists">
+		{% with messages = get_flashed_messages(category_filter=["alert"])%}
+			{% if messages %}
+				<script>
+					{% for message in messages %}
+						alert("{{ message }}");
+					{% endfor %}
+				</script>
+			{% endif %}
+		{% endwith %}
+		<input type="submit" name="view" value="View lists">
+		<input type="submit" name="delete" value="Delete lists">
+
+		{% with view_details = get_flashed_messages(category_filter=["view"]) %}
+			{% if view_details %}
+				<ul>
+					{% for list in view_details %}
+						<li>{{list}}</li> <br>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+	</form>
+</body>
+</html>
