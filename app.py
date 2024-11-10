@@ -4,7 +4,7 @@ app = Flask(__name__)
 app.secret_key = 'lmfao'
 con = mysql.connector.connect (
 		host="localhost",
-		user="starforce",
+		user="root",
 		password="aulto",
 		database="todolist"
 	)
@@ -13,7 +13,7 @@ cursor = con.cursor()
 if con.is_connected():	
 	print(f'connected to database {con.database}')
 else:
-	print('Something went wrong', conn.error())
+	print('Something went wrong', con.error())
 
 @app.route('/usr/create', methods = ['POST', 'GET'])
 def insert():
