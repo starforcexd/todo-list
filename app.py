@@ -8,7 +8,7 @@ con = mysql.connector.connect (
 		password="YOUR_PASSWORD",
 		database="YOUR_DATABASE_NAME"
 	)
-cursor = con.cursor()
+cursor = con.cursor(
 
 if con.is_connected():	
 	print(f'connected to database {con.database}')
