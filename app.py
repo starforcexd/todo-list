@@ -3,10 +3,10 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = 'lmfao'
 con = mysql.connector.connect (
-		host="localhost",
-		user="starforce",
-		password="aulto",
-		database="todolist"
+		host="SHOULD_BE_LOCALHOST_Ig",
+		user="YOUR_USER_NAME",
+		password="YOUR_PASSWORD",
+		database="YOUR_DATABASE_NAME"
 	)
 cursor = con.cursor()
 
