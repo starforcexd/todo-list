@@ -4,7 +4,7 @@ app = Flask(__name__)
 app.secret_key = 'lmfao'
 con = mysql.connector.connect (
 		host="localhost",
-		user="root",
+		user="starforce",
 		password="aulto",
 		database="todolist"
 	)
@@ -27,19 +27,18 @@ def insert():
 			flash('New list added!', 'alert')
 		except mysql.connector.Error as error:
 			print(f'something went wrong {error}')
-	view()
-
 	return render_template('create-todo.html')
+"""
 def view():
 	if 'view' in request.form:
 		sql = "SELECT * FROM lists;"
 		try:
 			cursor.execute(sql)
 			row = cursor.fetchall()
-			flash(row, 'view')
+			return render_template('create-todo.html', rows=row)
 		except mysql.connector.Error as error:
 			print(f'something went wrong {error}')
-
+"""
 @app.route('/usr/delete', methods = ['POST', 'GET'])
 def delete():
 	if request.method == 'POST':
@@ -52,7 +51,6 @@ def delete():
 			flash("deleted the task", "alert2")
 		except mysql.connector.Error as error:
 			print(f'something went wrong {error}')
-	view()
 	return render_template('delete-todo.html')
 
 

@@ -21,18 +21,8 @@
 				</script>
 			{% endif %}
 		{% endwith %}
-		<input type="submit" name="view" value="View lists">
+		<!-- <input type="submit" name="view" value="View lists"> -->
 		<a href="{{ url_for('delete') }}">Delete a task</a>
-
-		{% with view_details = get_flashed_messages(category_filter=["view"]) %}
-			{% if view_details %}
-				<ul>
-					{% for list in view_details %}
-						<li>{{list}}</li> <br>
-					{% endfor %}
-				</ul>
-			{% endif %}
-		{% endwith %}
 	</form>
 </body>
 </html>
